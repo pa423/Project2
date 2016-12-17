@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>tasks</title>
+</head>
+<body>
+<h1>Tasks</h1>
+
+<a href="/task/add">Add New task</a> <br /><br />
+
+<table border="1">
+    <tr><th>task description</th><th>priority</th><th>deadline</th><th>Action</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/task/?taskDescription="><%= result[i].taskDescription %></a></td>
+        <td><%= result[i].priority %>
+        <td><%= result[i].deadline %>
+        <td><form action="/task/delete/">
+                <input type="hidden" name="task_id" id="task_id" value="<%= result[i].task_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+
+</html>

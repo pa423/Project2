@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>bug</title>
+</head>
+<body>
+<h1>bugs</h1>
+
+<a href="/bug/add">Add New bug</a> <br /><br />
+
+<table border="1">
+    <tr><th>bug description</th><th>bug difficulty</th><th>Action</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/bug/?bugDescription="><%= result[i].bugDescription %></a></td>
+        <td><%= result[i].bugDifficulty %>
+        <td><form action="/bug/delete/">
+                <input type="hidden" name="bug_id" id="bug_id" value="<%= result[i].bug_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+
+</html>

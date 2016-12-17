@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>project</title>
+</head>
+<body>
+<h1>Projects</h1>
+
+<a href="/project/add">Add New project</a> <br /><br />
+
+<table border="1">
+    <tr><th>project description</th><th>Action</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/project/?projectDescription="><%= result[i].projectName %></a></td>
+        <td><form action="/project/delete/">
+                <input type="hidden" name="project_id" id="project_id" value="<%= result[i].project_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+
+</html>

@@ -9,6 +9,13 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var about = require('./routes/about_routes');
 
+var task = require('./routes/task_routes');
+var team = require('./routes/team_routes');
+var project = require('./routes/project_routes');
+var bug = require('./routes/bug_routes');
+var feature = require('./routes/feature_routes');
+var teamIsAssignedProject = require('./routes/teamIsAssignedProject_routes');
+
 var app = express();
 
 // view engine setup
@@ -26,6 +33,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/about', about);
+
+app.use('/task', task);
+app.use('/team', team);
+app.use('/project', project);
+app.use('/bug', bug);
+app.use('/feature', feature);
+app.use('/teamIsAssignedProject', teamIsAssignedProject);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

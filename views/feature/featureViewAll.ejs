@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>feature</title>
+</head>
+<body>
+<h1>features</h1>
+
+<a href="/feature/add">Add New feature</a> <br /><br />
+
+<table border="1">
+    <tr><th>feature description</th><th>feature difficulty</th><th>Action</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/feature/?featureDescription="><%= result[i].featureDescription %></a></td>
+        <td><%= result[i].featureDifficulty %>
+        <td><form action="/feature/delete/">
+                <input type="hidden" name="feature_id" id="feature_id" value="<%= result[i].feature_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>teams</title>
+</head>
+<body>
+<h1>teams</h1>
+
+<a href="/team/add">Add New team</a> <br /><br />
+
+<table border="1">
+    <tr><th>team name</th><th>size</th><th>Action</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/team/?teamDescription="><%= result[i].teamName %></a></td>
+        <td><%= result[i].size %>
+        <td><form action="/team/delete/">
+                <input type="hidden" name="team_id" id="team_id" value="<%= result[i].team_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+
+</html>
